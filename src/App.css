@@ -1,0 +1,76 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 2em;
+	line-height: 1.5;
+	font-weight: 400;
+  
+	color-scheme: light dark;
+	color: black;
+	background-color: white;
+  
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+  }
+
+  body, html {
+	margin: 5px;
+    padding: 0;
+    height: 100%;
+}
+
+.play-area {
+	display: grid;
+	gap: 8%;
+	
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	height: 100px;
+	width: 90%;
+	font-weight: bolder;
+	margin: 0;
+	justify-content: center;
+	align-items: center;
+}
+
+.category {
+	border: 7px solid;
+	text-align: center;
+}
+
+.number {
+	text-align:end;
+	margin: 20px;
+}
+
+#blue {
+	border-color: aqua;
+	color:aqua;
+}
+
+#green {
+	border-color: green;
+	color:green;
+}
+
+#red {
+	border-color: red;
+	color:red;
+}
+
+#orange {
+	border-color: orange;
+	color:orange;
+}
+
+#yellow {
+	border-color: yellow;
+	color:yellow;
+}
+
+p {color: black}

@@ -4,10 +4,10 @@ export default function Button(props) {
 
 	return (
 		<>
-			<div class="constraint">
-				<button class="round-button">
-					<div class="round-button-circle">
-						<span class="round-button" id={props.type}>{props.type}</span>
+			<div className="constraint">
+				<button className="round-button" onClick={props.onClick}>
+					<div className="round-button-circle">
+						<span className="round-button" id={props.type}>{props.type}</span>
 					</div>
 				</button>
 			</div>

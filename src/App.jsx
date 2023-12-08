@@ -9,7 +9,7 @@ function App() {
 
 	const [words, setWords] = useState([]);
 	const [usedWords, setUsedWords] = useState([]);
-	const [tries, setTries] = useState(13);
+	const [cards, setCards] = useState(13);
 	const [score, setScore] = useState(0);
 
 	useEffect(() => {
@@ -38,22 +38,29 @@ function App() {
 		};
 	}, []);
 
-	console.log("Words for the round are: " + words)
-	console.log("Words used in the game are " + usedWords)
+	// console.log("Words for the round are: " + words)
+	// console.log("Words used in the game are " + usedWords)
 
 	const right = () => {
-		console.log("right")
-		setTries(prevTries => prevTries -1)
+		setCards(prevCards => prevCards -1)
 		setScore(prevScore => prevScore +1)
 	}
 
 	const pass = () => {
-		setTries(prevTries => prevTries -2)
+		setCards(prevCards => prevCards -1)
 	}
 
 	const wrong = () => {
-		setTries(prevTries => prevTries -3)
+		setCards(prevCards => prevCards -2)
 	}
+
+	useEffect(() => {
+			if (score === 13) {
+				console.log("win")
+			} else if (cards <= 0) {
+				console.log("lose")
+			}
+	},[score,cards])
 
 	let blue = words[0];
 	let green = words[1];

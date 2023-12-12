@@ -17,15 +17,38 @@
 
 body,
 html {
-	margin: 5px;
+	margin: 0;
 	padding: 0;
 	height: 100%;
+}
+
+.homescreen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #FFF;
+	padding: 50px;
+	z-index: 1000;
+}
+
+.logo {
+	margin-top: 30px;
+	max-width: 80vw;
+	max-height: 45vh;
 }
 
 .play-area {
 	display: grid;
 	gap: 8%;
-
 }
 
 .grid {
@@ -143,3 +166,89 @@ button {
 #pass:hover {
 	background: #30588e;
 }
+
+.big-button {
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .9rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .5rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 80%;
+  max-width: 460px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.big-button:focus {
+  outline: 0;
+}
+
+.big-button:after {
+  content: '';
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+.big-button:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+.new {
+	background-color: #009adf;
+}
+
+.rules {
+	background-color: #ff8300;
+}
+
+@media (min-width: 768px) {
+  .big-button {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
+  }
+}
+
+.close {
+	position: absolute;
+	right: 32px;
+	top: 32px;
+	width: 32px;
+	height: 32px;
+	opacity: 0.3;
+  }
+  .close:hover {
+	opacity: 1;
+  }
+  .close:before, .close:after {
+	position: absolute;
+	left: 15px;
+	content: ' ';
+	height: 33px;
+	width: 2px;
+	background-color: #333;
+  }
+  .close:before {
+	transform: rotate(45deg);
+  }
+  .close:after {
+	transform: rotate(-45deg);
+  }
+  

@@ -38,9 +38,6 @@ function App() {
 		};
 	}, []);
 
-	// console.log("Words for the round are: " + words)
-	// console.log("Words used in the game are " + usedWords)
-
 	const right = () => {
 		setCards(prevCards => prevCards -1)
 		setScore(prevScore => prevScore +1)

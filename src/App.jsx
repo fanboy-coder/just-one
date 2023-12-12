@@ -22,7 +22,7 @@ function App() {
 			{appVisibility || (
 				<>
 				<button onClick={() => setIsOpen(true)}className="big-button rules">Regras</button>
-				<Modal open={isOpen}/>
+				<Modal open={isOpen} onClose={()=>setIsOpen(false)}/>
 				</>
 			)}
 		</div>

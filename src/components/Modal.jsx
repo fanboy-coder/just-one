@@ -7,7 +7,7 @@ export default function Modal({open, onClose}) {
 	return (
 		<div className="modal">
 			<button onClick={onClose} className="close"></button>
-			<h2>Como jogar Just One</h2>
+			<h3>Como jogar Just One</h3>
 			<p>Regras</p>
 		</div>
 	)

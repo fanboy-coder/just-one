@@ -12,10 +12,10 @@ function Game() {
 	const [usedWords, setUsedWords] = useState([]);
 	const [cards, setCards] = useState(13);
 	const [score, setScore] = useState(0);
-	const [message,setMessage] = useState("");
+	const [message, setMessage] = useState("");
 	const [isOpen, setIsOpen] = useState(false);
 
-	useEffect(() => {
+	const generateNewWords = () => {
 		let set = [];
 		function randomSet() {
 			if (set.length === 5) return;
@@ -29,44 +29,58 @@ function Game() {
 		}
 		randomSet();
 		if (set.length === 5) {
-			setWords(set)
+			setWords(set);
 			const newUsedWords = set;
 			const uniqueUsedWords = newUsedWords.filter(
 				newUsedWords => !usedWords.includes(newUsedWords)
-			)
-			setUsedWords(prevArray => [...prevArray, ...uniqueUsedWords])
-
+			);
+			setUsedWords(prevArray => [...prevArray, ...uniqueUsedWords]);
 		} else {
 			randomSet();
-		};
-	}, []);
+		}
+	};
 
 	const right = (message) => {
-		setCards(prevCards => prevCards -1)
-		setScore(prevScore => prevScore +1)
-		setMessage(message)
+		setCards(prevCards => prevCards - 1)
+		setScore(prevScore => prevScore + 1)
+		checkEndGame(message);
 		setIsOpen(true)
+		generateNewWords();
 	}
 
-	const pass = () => {
-		setCards(prevCards => prevCards -1)
-		setMessage("Não faz mal, ainda há muito jogo.")
+	const pass = (message) => {
+		setCards(prevCards => prevCards - 1)
+		checkEndGame(message);
 		setIsOpen(true)
+		generateNewWords();
 	}
 
-	const wrong = () => {
-		setCards(prevCards => prevCards -2)
-		setMessage("Oops, palavra errada!")
+	const wrong = (message) => {
+		setCards(prevCards => prevCards - 2)
+		checkEndGame(message);
 		setIsOpen(true)
+		generateNewWords();
+	}
+
+	const checkEndGame = (message) => {
+		if (!cards <= 0) {
+			setMessage(message)
+			} else {
+				consolel.log("Continuar daqui")
+			}
 	}
 
 	useEffect(() => {
-			if (score === 13) {
-				console.log("win")
-			} else if (cards <= 0) {
-				console.log("lose")
-			}
-	},[score,cards])
+		if (score === 13) {
+			console.log("win")
+		} else if (cards <= 0) {
+			console.log("lose")
+		}
+	}, [score, cards])
+
+	useEffect(() => {
+		generateNewWords();
+	}, []);
 
 	let blue = words[0];
 	let green = words[1];
@@ -80,18 +94,18 @@ function Game() {
 				<Counter /><h2>Pontuação: </h2>{score}
 			</div>
 			<div className='words-area'>
-				<Category number="1" color="blue" word={blue}/>
+				<Category number="1" color="blue" word={blue} />
 				<Category number="2" color="green" word={green} />
 				<Category number="3" color="red" word={red} />
 				<Category number="4" color="orange" word={orange} />
 				<Category number="5" color="yellow" word={yellow} />
 			</div>
 			<div className='buttons-area'>
-				<Button type="right" onClick={() => right("Parabéns, acertaste!")}/>
-				<Button type="pass" onClick={pass}/>
-				<Button type="wrong" onClick={wrong}/>
+				<Button type="right" onClick={() => right("Parabéns, acertaste!")} />
+				<Button type="pass" onClick={() => pass("Não faz mal, tentas acertar a próxima.")} />
+				<Button type="wrong" onClick={() => wrong("Opps, palavra errada!")} />
 			</div>
-			<NextModal open={isOpen} onClose={() => setIsOpen(false)} message={message}/>
+			<NextModal open={isOpen} onClose={() => setIsOpen(false)} message={message} />
 		</div>
 	)
 }

@@ -8,12 +8,23 @@ import NextModal from './NextModal';
 
 function Game() {
 
-	const [words, setWords] = useState([]);
-	const [usedWords, setUsedWords] = useState([]);
-	const [cards, setCards] = useState(13);
-	const [score, setScore] = useState(0);
-	const [message, setMessage] = useState("");
-	const [isOpen, setIsOpen] = useState(false);
+	const [key,setKey] = useState(0);
+
+	const initialState = {
+		words: [],
+		usedWords: [],
+		cards: 13,
+		score: 0,
+		message: "",
+		isOpen: false,
+	}
+
+	const [words, setWords] = useState(initialState.words);
+	const [usedWords, setUsedWords] = useState(initialState.usedWords);
+	const [cards, setCards] = useState(initialState.cards);
+	const [score, setScore] = useState(initialState.score);
+	const [message, setMessage] = useState(initialState.message);
+	const [isOpen, setIsOpen] = useState(initialState.isOpen);
 
 	const generateNewWords = () => {
 		let set = [];
@@ -43,44 +54,58 @@ function Game() {
 	const right = (message) => {
 		setCards(prevCards => prevCards - 1)
 		setScore(prevScore => prevScore + 1)
-		checkEndGame(message);
+		setMessage(message)
 		setIsOpen(true)
 		generateNewWords();
 	}
 
 	const pass = (message) => {
 		setCards(prevCards => prevCards - 1)
-		checkEndGame(message);
+		setMessage(message)
 		setIsOpen(true)
 		generateNewWords();
 	}
 
 	const wrong = (message) => {
 		setCards(prevCards => prevCards - 2)
-		checkEndGame(message);
+		setMessage(message)
 		setIsOpen(true)
 		generateNewWords();
 	}
 
-	const checkEndGame = (message) => {
-		if (!cards <= 0) {
-			setMessage(message)
-			} else {
-				consolel.log("Continuar daqui")
-			}
+	const resetGame = () => {
+		setWords(initialState.words);
+		setUsedWords(initialState.usedWords);
+		setCards(initialState.cards);
+		setScore(initialState.score);
+		setMessage(initialState.message);
+		setIsOpen(initialState.isOpen);
+		setKey(prevKey => prevKey +1);
 	}
 
 	useEffect(() => {
-		if (score === 13) {
-			console.log("win")
-		} else if (cards <= 0) {
-			console.log("lose")
+		if (cards <= 0) {
+			if (score <= 3) {
+				setMessage("Tentem mais uma vez. E mais uma, e mais uma...")
+			} else if (score >= 4 && score <= 6) {
+				setMessage("É um bom começo. Continuem a treinar!")
+			} else if (score === 7 || score === 8) {
+				setMessage("Vocês estão na média. Conseguem melhorar?")
+			} else if (score === 9 || score === 10) {
+				setMessage("Ui, nada mau!")
+			} else if (score === 11) {
+				setMessage("Genial! Uma pontuação formidável!")
+			} else if (score === 12) {
+				setMessage("Incrível! Os vossos amigos vão ficar impressionados!")
+			} else {
+				setMessage("Uma pontuação perfeita! Acham que conseguem mais uma vez?")
+			}
 		}
-	}, [score, cards])
+	}, [cards])
 
 	useEffect(() => {
 		generateNewWords();
-	}, []);
+	}, [key]);
 
 	let blue = words[0];
 	let green = words[1];
@@ -105,7 +130,14 @@ function Game() {
 				<Button type="pass" onClick={() => pass("Não faz mal, tentas acertar a próxima.")} />
 				<Button type="wrong" onClick={() => wrong("Opps, palavra errada!")} />
 			</div>
-			<NextModal open={isOpen} onClose={() => setIsOpen(false)} message={message} />
+			<NextModal
+				open={isOpen}
+				onClose={() => setIsOpen(false)}
+				reset={() => resetGame()}
+				message={message}
+				score={score}
+				cards={cards}
+			/>
 		</div>
 	)
 }

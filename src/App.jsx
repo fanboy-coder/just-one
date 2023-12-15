@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Game from "./components/Game";
-import Modal from "./components/Modal";
+import RulesModal from "./components/RulesModal";
 import logo from "./assets/images/logo.png";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 					<button onClick={() => setIsOpen(true)} className="big-button rules">
 						Regras
 					</button>
-					<Modal open={isOpen} onClose={() => setIsOpen(false)} />
+					<RulesModal open={isOpen} onClose={() => setIsOpen(false)} />
 				</>
 			)}
 			{appVisibility && <Game />}

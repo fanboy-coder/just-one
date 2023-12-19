@@ -5,6 +5,8 @@ import Button from './Button';
 import Counter from './Counter';
 import allWords from "../data/data";
 import NextModal from './NextModal';
+import Icon from '@mdi/react';
+import { mdiPause } from '@mdi/js';
 
 function Game() {
 
@@ -116,7 +118,12 @@ function Game() {
 	return (
 		<div className='play-area'>
 			<div className='counter-area'>
-				<Counter /><h2>Pontuação: </h2>{score}
+				<Counter score={score }/>
+			</div>
+			<div>
+				<span>
+				<Icon path={mdiPause} size={1} onClick={()=>setIsOpen(true)}/>
+				</span>
 			</div>
 			<div className='words-area'>
 				<Category number="1" color="blue" word={blue} />
@@ -133,6 +140,7 @@ function Game() {
 			<NextModal
 				open={isOpen}
 				onClose={() => setIsOpen(false)}
+				resetMessage={() =>setMessage(initialState.message)}
 				reset={() => resetGame()}
 				message={message}
 				score={score}

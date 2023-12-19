@@ -68,7 +68,7 @@ export default function Modal({ open, onClose }) {
 					{items.map((item, index) => {
 						return (
 							<button className="indicator-button" onClick={() => updateIndex(index)}>
-								<span class={`material-symbols-outlined ${index === activeIndex ? "indicator-symbol-active" : "indicator-symbol"}`}>
+								<span className={`material-symbols-outlined ${index === activeIndex ? "indicator-symbol-active" : "indicator-symbol"}`}>
 									radio_button_checked
 								</span>
 							</button>
@@ -76,7 +76,7 @@ export default function Modal({ open, onClose }) {
 					})}
 				</div>
 				<button className="button-arrow" onClick={() => { updateIndex(activeIndex + 1) }}>
-					<span class="material-symbols-outlined">
+					<span className="material-symbols-outlined">
 						arrow_forward_ios
 					</span>
 				</button>

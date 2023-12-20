@@ -10,7 +10,7 @@ import { mdiPause } from '@mdi/js';
 
 function Game() {
 
-	const [key,setKey] = useState(0);
+	const [key, setKey] = useState(0);
 
 	const initialState = {
 		words: [],
@@ -82,7 +82,7 @@ function Game() {
 		setScore(initialState.score);
 		setMessage(initialState.message);
 		setIsOpen(initialState.isOpen);
-		setKey(prevKey => prevKey +1);
+		setKey(prevKey => prevKey + 1);
 	}
 
 	useEffect(() => {
@@ -118,12 +118,10 @@ function Game() {
 	return (
 		<div className='play-area'>
 			<div className='counter-area'>
-				<Counter score={score }/>
-			</div>
-			<div>
-				<span>
-				<Icon path={mdiPause} size={1} onClick={()=>setIsOpen(true)}/>
-				</span>
+				<Counter score={score} />
+				<div className='pause-area'>
+					<Icon path={mdiPause} size={1} onClick={() => setIsOpen(true)} />
+				</div>
 			</div>
 			<div className='words-area'>
 				<Category number="1" color="blue" word={blue} />
@@ -140,7 +138,7 @@ function Game() {
 			<NextModal
 				open={isOpen}
 				onClose={() => setIsOpen(false)}
-				resetMessage={() =>setMessage(initialState.message)}
+				resetMessage={() => setMessage(initialState.message)}
 				reset={() => resetGame()}
 				message={message}
 				score={score}

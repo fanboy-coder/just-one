@@ -103,6 +103,7 @@ html {
 }
 
 .pause-area {
+	display: none;
 	grid-column: 2;
 	width: 100%;
 	position: absolute;
@@ -115,14 +116,12 @@ html {
 .words-area {
 	display: grid;
 	justify-content: center;
-	background-color: red;
 	gap: 15px;
 }
 
 .buttons-area {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	background-color: red;
 }
 
 .word {
@@ -189,7 +188,7 @@ button {
 }
 
 .round-button {
-	width: 25%;
+	width: 45%;
 }
 
 .round-button-circle {
@@ -197,17 +196,17 @@ button {
 	height: 0;
 	padding-bottom: 100%;
 	border-radius: 50%;
-	border: 7px solid #cfdcec;
+	border: 5px solid black;
 	overflow: hidden;
-	box-shadow: 0 0 3px gray;
 }
 
-.round-button a,
 .round-button span {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	float: left;
 	width: 100%;
-	padding-top: 50%;
+	padding-top: 40%;
 	padding-bottom: 50%;
 	line-height: 1em;
 	margin-top: -0.5em;
@@ -220,27 +219,30 @@ button {
 }
 
 #right {
-	background: rgb(31, 179, 31);
+	color: green;
 }
 
 #right:hover {
+	color: white;
 	background: green;
 }
 
 #wrong {
-	background: rgb(223, 54, 54);
+	color: rgb(223, 54, 54);
 }
 
 #wrong:hover {
-	background: rgb(174, 41, 41);
+	color: white;
+	background: rgb(223, 54, 54);
 }
 
 #pass {
-	background: #4679BD;
+	color: orange;
 }
 
 #pass:hover {
-	background: #30588e;
+	color: white;
+	background: orange;
 }
 
 .big-button {
@@ -305,6 +307,10 @@ button {
 	.big-button {
 		padding: .75rem 3rem;
 		font-size: 1.25rem;
+	}
+
+	.round-button {
+		width: 15%;
 	}
 
 	.counter-area,

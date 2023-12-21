@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from '@mdi/react';
-import { mdiHandBackRight, mdiAlphaX, mdiCheckBold } from '@mdi/js';
+import { mdiDotsHorizontal, mdiAlphaX, mdiCheckBold } from '@mdi/js';
 
 export default function Button(props) {
 
@@ -9,13 +9,13 @@ export default function Button(props) {
 			<div className="constraint">
 				<button className="round-button" onClick={props.onClick}>
 					<div className="round-button-circle">
-						<span className="round-button" id={props.type}>
+						<span id={props.type}>
 							{props.type === "right" ? (
-								<Icon path={mdiCheckBold} size={1} />
+								<Icon path={mdiCheckBold} size={1} id='right'/>
 							) : props.type === "pass" ? (
-								<Icon path={mdiHandBackRight} size={1} />
+								<Icon path={mdiDotsHorizontal} size={1} id='pass'/>
 							) : (
-								<Icon path={mdiAlphaX} size={1} />
+								<Icon path={mdiAlphaX} size={1} id='wrong'/>
 							)}
 						</span>
 					</div>

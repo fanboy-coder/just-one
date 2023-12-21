@@ -35,7 +35,7 @@ const allWords = ["Buffy", "Vulcão", "Paixão", "Galo", "Electricidade", "Vikin
 "Boxe","Funeral","Elástico","Panela","Flash","Túnel","Darwin","Tomate","Paraquedas","Canhão","Binóculos","Tapete","Pónei","Coroa","Novo","Tarantino",
 "Astérix","Robô","Comédia","Língua","Cabeleireiro","Cabra","Pão","Diabo","Primário","Tarzan","Boca","Carrossel","Psycho","Relva","Queda","Bigode","Borbulha",
 "Cadeira","Stark","Bolacha","Toalha","Vénus","Polvo","Ciclo","Ópera","Joaninha","Mostarda","Sherlock","Garrafa","Vírus","Croissant","Fantasma","Palha",
-"Prego","Potter","Série","Ninho","Especiaria","Elefante","Carnaval","Cárie","Managa","Gremlins","Póquer","Tarte","Número","Decathlon","Rum","Metal","Atum",
+"Prego","Potter","Série","Ninho","Especiaria","Elefante","Carnaval","Cárie","Manga","Gremlins","Póquer","Tarte","Número","Decathlon","Rum","Metal","Atum",
 "França","Lua","Refeitório","Pássaro","Ferramenta","Música","Garganta","América","Café","Febre"];
 
 export default {

@@ -8,20 +8,22 @@ function App() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className="homescreen">
+		<div className="screen">
 			{!appVisibility && (
-				<>
+				<div className="homescreen">
 					<div>
 						<img src={logo} alt="logo" className="logo" />
 					</div>
+					<div className="home-buttons">
 					<button onClick={() => setAppVisibility(true)} className="big-button new">
 						Novo jogo
 					</button>
-					<button onClick={() => setIsOpen(true)} className="big-button rules">
+					{/* <button onClick={() => setIsOpen(true)} className="big-button rules">
 						Regras
-					</button>
-					<RulesModal open={isOpen} onClose={() => setIsOpen(false)} />
-				</>
+					</button> */}
+					</div>
+					{/* <RulesModal open={isOpen} onClose={() => setIsOpen(false)} /> */}
+				</div>
 			)}
 			{appVisibility && <Game />}
 		</div>

@@ -59,6 +59,7 @@ function Game() {
 		setMessage(message)
 		setIsOpen(true)
 		generateNewWords();
+		console.log(cards)
 	}
 
 	const pass = (message) => {
@@ -66,6 +67,7 @@ function Game() {
 		setMessage(message)
 		setIsOpen(true)
 		generateNewWords();
+		console.log(cards)
 	}
 
 	const wrong = (message) => {
@@ -73,6 +75,7 @@ function Game() {
 		setMessage(message)
 		setIsOpen(true)
 		generateNewWords();
+		console.log(cards)
 	}
 
 	const resetGame = () => {
@@ -131,9 +134,9 @@ function Game() {
 				<Category number="5" color="yellow" word={yellow} />
 			</div>
 			<div className='buttons-area'>
-				<Button type="right" onClick={() => right("Parabéns, acertaste!")} />
-				<Button type="pass" onClick={() => pass("Não faz mal, tentas acertar a próxima.")} />
-				<Button type="wrong" onClick={() => wrong("Opps, palavra errada!")} />
+				<Button type="right" onClick={() => right("Parabéns, acertaste!")} disabled={isOpen}/>
+				<Button type="pass" onClick={() => pass("Não faz mal, tentas acertar a próxima.")} disabled={isOpen}/>
+				<Button type="wrong" onClick={() => wrong("Oops, palavra errada!")} disabled={isOpen}/>
 			</div>
 			<NextModal
 				open={isOpen}
@@ -141,7 +144,6 @@ function Game() {
 				resetMessage={() => setMessage(initialState.message)}
 				reset={() => resetGame()}
 				message={message}
-				score={score}
 				cards={cards}
 			/>
 		</div>

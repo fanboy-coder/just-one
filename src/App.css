@@ -1,8 +1,8 @@
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: 'Roboto Slab', serif;
 	font-size: 2em;
 	line-height: 1.5;
-	font-weight: 400;
+	font-weight: 800;
 
 	color-scheme: light dark;
 	color: black;
@@ -21,11 +21,16 @@ html {
 	padding: 0;
 }
 
-.homescreen {
+.screen {
 	display: grid;
-	gap: 10px;
 	height: 100vh;
 	margin: 0;
+}
+
+.homescreen {
+	display: grid;
+	align-items: center;
+	justify-content: center;
 }
 
 .modal {
@@ -34,22 +39,22 @@ html {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: #FFF;
-	padding: 50px;
 	z-index: 1000;
-	border: 1px solid #000000;
+	border: 4px solid #000000;
+	border-radius: 10px;
 	grid-template-rows: repeat(3, 1fr);
 	padding: .5rem 1.65rem;
 	width: 700px;
 	max-width: 50vw;
-	padding: 30px;
+	max-height: 70vh;
+	padding: 70px;
 	display: flex;
 	flex-direction: column;
+	gap: 20px;
 	justify-content: center;
+	align-items: center;
+	text-align: center;
 	overflow: hidden;
-}
-
-.modal-top {
-	display: grid;
 }
 
 .inner {
@@ -91,26 +96,17 @@ html {
 }
 
 .counter-area {
-	/* display: none; */
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	justify-content: center;
 }
 
 .score-area {
-	grid-column: 1;
-	width: 80%;
-	margin: 0px 200px;
+	width: 100%;
 }
 
 .pause-area {
 	display: none;
-	grid-column: 2;
-	width: 100%;
-	position: absolute;
-	right: 32px;
-	width: 50px;
-	height: 50px;
-	margin: 0px 200px;
 }
 
 .words-area {
@@ -127,7 +123,6 @@ html {
 .word {
 	display: grid;
 	grid-template-columns: 1fr 10fr;
-	font-weight: bolder;
 	margin: 0;
 	width: 100%;
 }
@@ -143,28 +138,33 @@ html {
 }
 
 #blue {
-	border-color: aqua;
-	color: aqua;
+	border-color: #009adf;
+	color: #009adf;
+	transform: rotate(+0.5deg);
 }
 
 #green {
-	border-color: green;
-	color: green;
+	border-color: #00b537;
+	color: #00b537;
+	transform: rotate(-0.5deg);
 }
 
 #red {
-	border-color: red;
-	color: red;
+	border-color: rgb(223, 54, 54);
+	color: rgb(223, 54, 54);
+	transform: rotate(+0.5deg);
 }
 
 #orange {
-	border-color: orange;
-	color: orange;
+	border-color: #ff8300;
+	color: #ff8300;
+	transform: rotate(-0.5deg);
 }
 
 #yellow {
-	border-color: yellow;
-	color: yellow;
+	border-color: #ffcc00;
+	color: #ffcc00;
+	transform: rotate(+0.5deg);
 }
 
 p {
@@ -206,25 +206,25 @@ button {
 	justify-content: center;
 	float: left;
 	width: 100%;
-	padding-top: 40%;
+	padding-top: 25%;
 	padding-bottom: 50%;
 	line-height: 1em;
 	margin-top: -0.5em;
 	text-align: center;
 	color: #e2eaf3;
-	font-family: Verdana;
 	font-size: 1.9em;
 	font-weight: bold;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 #right {
-	color: green;
+	color: #00b537;
 }
 
 #right:hover {
 	color: white;
-	background: green;
+	background: #00b537;
 }
 
 #wrong {
@@ -237,12 +237,12 @@ button {
 }
 
 #pass {
-	color: orange;
+	color: #ff8300;
 }
 
 #pass:hover {
 	color: white;
-	background: orange;
+	background: #ff8300;
 }
 
 .big-button {
@@ -250,7 +250,6 @@ button {
 	box-sizing: border-box;
 	color: white;
 	display: flex;
-	font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	font-size: .9rem;
 	font-weight: 700;
 	justify-content: center;
@@ -268,6 +267,8 @@ button {
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: manipulation;
+	justify-content: center;
+	align-items: center;
 }
 
 .big-button:focus {
@@ -315,9 +316,24 @@ button {
 
 	.counter-area,
 	.pause-area {
-		display: flex;
+		display: grid;
 		align-items: center;
 		justify-content: center;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.score-area {
+		margin: 0 200px;
+	}
+
+	.pause-area {
+		grid-column: 2;
+		width: 100%;
+		position: absolute;
+		right: 32px;
+		width: 50px;
+		height: 50px;
+		margin: 0px 200px;
 	}
 }
 

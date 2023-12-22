@@ -1,7 +1,7 @@
 :root {
 	font-family: 'Roboto Slab', serif;
-	font-size: 2em;
-	line-height: 1.5;
+	font-size: 1.4em;
+	line-height: 1.2;
 	font-weight: 800;
 
 	color-scheme: light dark;
@@ -57,7 +57,11 @@ html {
 	overflow: hidden;
 }
 
-.inner {
+.modal p {
+	font-weight: 400;
+}
+
+/* .inner {
 	white-space: nowrap;
 	transition: transform 0.3s;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -79,7 +83,7 @@ html {
 	color: #617d98;
 	align-items: center;
 	font-size: smaller;
-}
+} */
 
 .logo {
 	margin-top: 30px;
@@ -88,11 +92,9 @@ html {
 }
 
 .play-area {
-	display: grid;
-	grid-template-rows: repeat(3, 1fr);
-	min-height: 100vh;
 	margin: 0;
 	gap: 10px;
+	display: grid;
 }
 
 .counter-area {
@@ -111,8 +113,10 @@ html {
 
 .words-area {
 	display: grid;
+	align-items: center;
 	justify-content: center;
 	gap: 15px;
+	margin: 0 20px;
 }
 
 .buttons-area {
@@ -135,6 +139,7 @@ html {
 .number {
 	text-align: end;
 	margin: 20px;
+	color: black !important;
 }
 
 #blue {
@@ -206,7 +211,7 @@ button {
 	justify-content: center;
 	float: left;
 	width: 100%;
-	padding-top: 25%;
+	padding-top: 30%;
 	padding-bottom: 50%;
 	line-height: 1em;
 	margin-top: -0.5em;

@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css"
 
-export default function NextModal({ open, onClose, reset, message, resetMessage, cards }) {
+export default function NextModal({ open, onClose, reset, message, score,resetMessage, cards }) {
 	if (!open) return null;
 
 	return (
@@ -22,7 +22,7 @@ export default function NextModal({ open, onClose, reset, message, resetMessage,
 						</>
 					) : (
 						<>
-							<p>Acabou! Clica no botão para iniciares um novo jogo</p>
+							<h3>{score} pontos</h3>
 							<button onClick={reset} className="big-button new">Novo jogo</button>
 						</>
 					)}

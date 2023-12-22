@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Counter({score}) {
+export default function Counter({cards}) {
 	return(
 		<>
 		<div className="score-area">
-		<h2>Pontuação: {score}</h2>
+		<h2>Cartas restantes: {cards}</h2>
 		</div>
 		</>
 	)

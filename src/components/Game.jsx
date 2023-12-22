@@ -7,6 +7,7 @@ import allWords from "../data/data";
 import NextModal from './NextModal';
 import Icon from '@mdi/react';
 import { mdiPause } from '@mdi/js';
+// import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 
 function Game() {
 
@@ -59,7 +60,6 @@ function Game() {
 		setMessage(message)
 		setIsOpen(true)
 		generateNewWords();
-		console.log(cards)
 	}
 
 	const pass = (message) => {
@@ -67,15 +67,13 @@ function Game() {
 		setMessage(message)
 		setIsOpen(true)
 		generateNewWords();
-		console.log(cards)
 	}
 
 	const wrong = (message) => {
 		setCards(prevCards => prevCards - 2)
 		setMessage(message)
 		setIsOpen(true)
-		generateNewWords();
-		console.log(cards)
+		generateNewWords();	
 	}
 
 	const resetGame = () => {
@@ -87,6 +85,12 @@ function Game() {
 		setIsOpen(initialState.isOpen);
 		setKey(prevKey => prevKey + 1);
 	}
+
+	// const doubleTap = Gesture.Tap().numberOfTaps(2).onEnd((_event, success) => {
+	// 		if (success){
+	// 			console.log("tap")
+	// 		}
+	// 	});
 
 	useEffect(() => {
 		if (cards <= 0) {
@@ -105,6 +109,7 @@ function Game() {
 			} else {
 				setMessage("Uma pontuação perfeita! Acham que conseguem mais uma vez?")
 			}
+			setCards(0);
 		}
 	}, [cards])
 
@@ -119,9 +124,10 @@ function Game() {
 	let yellow = words[4];
 
 	return (
+		// <GestureDetector gesture={doubleTap}>
 		<div className='play-area'>
 			<div className='counter-area'>
-				<Counter score={score} />
+				<Counter cards={cards} />
 				<div className='pause-area'>
 					<Icon path={mdiPause} size={1} onClick={() => setIsOpen(true)} />
 				</div>
@@ -145,8 +151,10 @@ function Game() {
 				reset={() => resetGame()}
 				message={message}
 				cards={cards}
+				score={score}
 			/>
 		</div>
+		// </GestureDetector>
 	)
 }
 

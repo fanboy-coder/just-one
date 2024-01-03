@@ -4,7 +4,7 @@ const allWords = ["Buffy", "Vulcão", "Paixão", "Galo", "Electricidade", "Vikin
 "Canção","Nilo","Cinema","Rádio","Pêra","Gladiador","Sol","Cereal","Prisão","Buraco","Punk","Noite","Mapa","César",
 "Noodle","Boné","Dentista","Trigo","Cordel","Austrália","Castelo","Guarda","Ovelha","Fracasso","História","Cerveja",
 "Fado","Presidente","Caixa","PlayStation","Loiro","Íris","Membro","Tecido","Vampiro","Monopólio","Manga","Hotel",
-"Génio","Dráculo","Leão","Meia","Sexta-feira","Casa","Padrinho","Guerra","Corda","Vinho","Relâmpago","Jardim","Pintura",
+"Génio","Drácula","Leão","Meia","Sexta-feira","Casa","Padrinho","Guerra","Corda","Vinho","Relâmpago","Jardim","Pintura",
 "Cabana","Trégua","Crocodilo","Jóia","Metro","Óculos","Mariza","Dinossauro","Amarelo","Cogumelo","Pombo","Pikachu",
 "Faca","Almofada","Armstrong","Espada","Roubo","Nintendo","Aposta","Sal","Manual","Gel","Hollywood","Mosquito","Lança",
 "Saco","Fino","Doping","Alho","Cubo","Rocky","Leite","Borboleta","Pó","Porcelana","Mercado","Casulo","Granada","Brincadeira",
